@@ -2,7 +2,7 @@
 - Before you can begin using **ec2-utils**, you must set up authentication credentials. 
 If you have the AWS CLI installed, then you can use it to configure your credentials file:
 ```
-aws configure
+aws configure 
 ```
 Alternatively, you can create the credential file yourself. By default, its location is at `~/.aws/credentials`:
 ```
