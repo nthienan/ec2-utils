@@ -4,6 +4,7 @@ from . import ec2
 import sys
 import logging
 from pathlib import Path
+import os
 
 
 @click.group()
@@ -48,6 +49,7 @@ def gen_config(verbose):
 region = %s
 """ % ec2_metadata.region
     file_path = "%s/.aws/credentials" % str(Path.home())
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
     with open(file=file_path, mode="w") as f:
         f.write(config)
     logging.info(
