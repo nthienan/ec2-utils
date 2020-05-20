@@ -19,8 +19,7 @@ region=us-east-1
 This sets up credentials for the default profile as well as a default region to use when creating connections. 
 See [Credentials](https://boto3.readthedocs.io/en/latest/guide/configuration.html#guide-configuration) for in-depth configuration sources and options.
 
-- Supported Python: 2.7
-- Install dependencies: `pip install -r requirements.txt`
+- Install: `pip install ec2u`
 - Features:
   ```bash
     Usage: ec2u [OPTIONS] COMMAND [ARGS]...

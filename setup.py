@@ -7,7 +7,7 @@ from setuptools import setup, Command
 
 here = path.abspath(path.dirname(__file__))
 name = 'ec2u'
-version = '0.1.4'
+version = '0.1.5'
 
 
 class CleanCommand(Command):

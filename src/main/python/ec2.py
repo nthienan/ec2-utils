@@ -88,6 +88,6 @@ def has_tags(instance_id, tag_key, tag_value):
         ]
     )
     for item in response['Tags']:
-        if item['Name'] == tag_key and item['Value'] == tag_value:
+        if item['Key'] == tag_key and item['Value'] == tag_value:
             return True
     return False
