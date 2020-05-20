@@ -75,3 +75,19 @@ def assign_elastic_ip(elastic_ip, instance_name):
         ec2_client = boto3.client("ec2")
         ec2_client.associate_address(
             AllocationId=allocation_id, InstanceId=instance_ids[0])
+
+
+def has_tags(instance_id, tag_key, tag_value):
+    ec2_client = boto3.client("ec2")
+    response = ec2_client.describe_tags(
+        Filters=[
+            {
+                "Name": "resource-id",
+                "Values": [instance_id]
+            }
+        ]
+    )
+    for item in response['Tags']:
+        if item['Name'] == tag_key and item['Value'] == tag_value:
+            return True
+    return False

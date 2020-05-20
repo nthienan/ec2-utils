@@ -7,8 +7,12 @@ from pathlib import Path
 import os
 
 
+__VERSION__ = "0.1.4"
+
+
 @click.group()
 @click.option("--verbose", is_flag=True)
+@click.version_option(__VERSION__)
 def main(verbose):
     logger = logging.getLogger()
     level = "INFO"
@@ -31,8 +35,8 @@ def has_tag(instance_id, tag_key, tag_value, verbose):
         logging.getLogger().setLevel("DEBUG")
     if instance_id == "":
         instance_id = ec2_metadata.instance_id
-    instance_ids = ec2.get_instance_ids(tag_key, tag_value)
-    if instance_id not in instance_ids:
+    has_tag = ec2.has_tags(instance_id, tag_key, tag_value)
+    if has_tag:
         logging.info("The instance has no tag that match the given tag")
         sys.exit(1)
     logging.info("The instance has tag that match the given tag")

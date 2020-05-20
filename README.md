@@ -1,5 +1,5 @@
-# EC2 Utils
-- Before you can begin using **ec2-utils**, you must set up authentication credentials. 
+# EC2 Utils CLI
+- Before you can begin using **ec2u**, you must set up authentication credentials. 
 If you have the AWS CLI installed, then you can use it to configure your credentials file:
 ```
 aws configure 
@@ -22,17 +22,15 @@ See [Credentials](https://boto3.readthedocs.io/en/latest/guide/configuration.htm
 - Supported Python: 2.7
 - Install dependencies: `pip install -r requirements.txt`
 - Features:
-    - Get public IP address by EC2 instance name.
-        ```python
-        from ec2-utils import get_public_ip
-  
-        print(get_public_ip("Instance Name"))
-        ```
-        Output: `{"public_ip": "54.254.212.129", "name": "Instance Name"}`
-        
-    - Assign an Elastic IP to EC2 instance
-        ```python
-        from ec2-utils import assign_elastic_ip
-  
-        assign_elastic_ip("10.11.12.13", "Instance Name")
-        ```
+  ```bash
+    Usage: ec2u [OPTIONS] COMMAND [ARGS]...
+
+    Options:
+      --verbose
+      --version  Show the version and exit.
+      --help     Show this message and exit.
+
+    Commands:
+      gen-config  Generate AWS configuration file
+      has-tag     Check whether or not instance has given tag
+  ```
