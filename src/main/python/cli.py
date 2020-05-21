@@ -7,7 +7,7 @@ from pathlib import Path
 import os
 
 
-__VERSION__ = "0.1.5"
+__VERSION__ = "0.1.6"
 
 
 @click.group()
@@ -58,3 +58,11 @@ region = %s
         f.write(config)
     logging.info(
         "Configuration has been successfully generated at %s" % file_path)
+
+
+@main.command(short_help="Get private IPv4 of the instance")
+@click.option("--verbose", is_flag=True)
+def private_ipv4(verbose):
+    if verbose:
+        logging.getLogger().setLevel("DEBUG")
+    click.echo(ec2_metadata.private_ipv4)
