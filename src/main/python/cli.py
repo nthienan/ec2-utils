@@ -7,7 +7,7 @@ from pathlib import Path
 import os
 
 
-__VERSION__ = "0.1.6"
+__VERSION__ = "0.1.7"
 
 
 @click.group()

@@ -77,7 +77,7 @@ def assign_elastic_ip(elastic_ip, instance_name):
             AllocationId=allocation_id, InstanceId=instance_ids[0])
 
 
-def has_tags(instance_id, tag_key, tag_value):
+def has_tags(instance_id, tag_key, tag_values):
     ec2_client = boto3.client("ec2")
     response = ec2_client.describe_tags(
         Filters=[
@@ -88,6 +88,6 @@ def has_tags(instance_id, tag_key, tag_value):
         ]
     )
     for item in response['Tags']:
-        if item['Key'] == tag_key and item['Value'] == tag_value:
+        if item['Key'] == tag_key and item['Value'] in tag_values:
             return True
     return False

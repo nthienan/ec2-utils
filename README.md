@@ -40,6 +40,10 @@ Install: `pip install ec2u`
 
 ## Changelog
 
+### **0.1.7 - 2020-05-27**
+#### Added
+- Fix issue command `has-tag` does not work as expected
+
 ### **0.1.6 - 2020-05-21**
 #### Added
 - Add subcommand `private-ipv4`
